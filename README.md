@@ -1,5 +1,61 @@
 # Ordinal Explorer
 
+A simple explorer for Bitcoin Ordinals and Inscriptions.
+
+The Inscription viewer supports images, videos, audio, 3D models, html, and text.
+
+Please note that this project was only tested in Chrome.
+
+Note:
+The Figma design was followed as closely as possible. The project was made responsive, which will make the sizes of the elements slightly different than the design. To turn off the responsiveness and make the elements the same size as the design,go to `src/main.tsx` and change the value of `ENABLE_RESPONSIVE` to `false`.
+
+## Known issues/required improvements
+- There is no state re-use between the Wallet Inscription List and Inscription pages. The Inscription List page pulls all Ordinals for a wallet and then each Inscriptions for each Ordinal in order to show the Inscription name on the list. This means that we already have the Inscription data but we get it again when we navigate to the Inscription detail page. This is not ideal and should be fixed.
+- We should also be able to store the Ordinal and Inscription data in a local store so that we don't have to fetch it again if we navigate back to the page. This does come with the caveat that if an Inscription was sent to another wallet, then it should no longer be shown on the Inscription list (as is currently the case). This is a trade-off that should be considered and could be implemented with a store that has a TTL before updating it is required.
+- The current implementation relies on external APIs to get the data. This is not ideal and we should have our own API that we can use instead. This would also allow us to cache the data server-side if needed. We would also make fewer calls to the server; instead of calling the server for each Ordinal and then again for each Inscription, we could call it once and get all the Ordinals/Inscriptions for a wallet and would also allow us to paginate the results in the case of a wallet containing many Ordinals.
+
+## Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+## Run locally
+
+Start a dev server:
+
+```bash
+npm run dev
+```
+
+Browse the application at http://localhost:5173/
+
+## Build
+
+Build the application:
+
+```bash
+npm run build
+```
+
+## Docker
+
+The Docker image was created to make deployment to Kubernetes or to a conatinerized hosting service easier.
+
+Build the docker image:
+
+```bash
+docker build -t ordinal-explorer .
+```
+
+Run the docker image:
+
+```bash
+docker run --rm -p 5173:5173 ordinal-explorer
+```
+
 ## Wallets used for testing:
 bc1pe6y27ey6gzh6p0j250kz23zra7xn89703pvmtzx239zzstg47j3s3vdvvs
 bc1pqdmdzetkl557lx70jdpjw2s82ncz9gxdvzgkuq7yr0lz4sl0mglsqcqvsv
