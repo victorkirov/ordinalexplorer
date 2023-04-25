@@ -26,7 +26,7 @@ const InscriptionViewer = ({ inscription }: Props) => {
   const Viewer = Object.entries(typeMap).find(([type]) => inscription.contentType.startsWith(type))?.[1]
 
   if (!Viewer) {
-    return <div>TODO: Unknown content type</div>
+    return <div>!!Unknown content type!!</div>
   }
 
   return (

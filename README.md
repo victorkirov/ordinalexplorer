@@ -1,6 +1,7 @@
 # Ordinal Explorer
 
-## Wallets for testing:
+## Wallets used for testing:
+bc1pe6y27ey6gzh6p0j250kz23zra7xn89703pvmtzx239zzstg47j3s3vdvvs
 bc1pqdmdzetkl557lx70jdpjw2s82ncz9gxdvzgkuq7yr0lz4sl0mglsqcqvsv
 
 ## Inscriptions for testing:

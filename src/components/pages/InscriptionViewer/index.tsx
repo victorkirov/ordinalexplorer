@@ -39,7 +39,7 @@ const InscriptionViewer = () => {
     <>
       <Title
         onBack={() => {
-          navigate(-1)
+          navigate(`/wallet/${inscription?.address}`)
         }}
       >
         Details
