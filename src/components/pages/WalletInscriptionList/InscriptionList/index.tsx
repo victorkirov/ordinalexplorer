@@ -6,10 +6,10 @@ import apiClient, { Inscription } from '@src/apiClient'
 import InscriptionLabel from '../InscriptionLabel'
 
 type Props = {
-  walletId: string | undefined | null
+  walletAddress: string | undefined | null
 }
 
-const InscriptionList = ({ walletId }: Props) => {
+const InscriptionList = ({ walletAddress }: Props) => {
   const [inscriptions, setInscriptions] = useState<Inscription[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
@@ -18,7 +18,7 @@ const InscriptionList = ({ walletId }: Props) => {
     setError(null)
     setInscriptions([])
 
-    if (!walletId) {
+    if (!walletAddress) {
       setLoading(false)
       return
     }
@@ -26,7 +26,7 @@ const InscriptionList = ({ walletId }: Props) => {
     setLoading(true)
 
     apiClient
-      .getInscriptionsForWallet(walletId)
+      .getInscriptionsForWallet(walletAddress)
       .then(inscriptionList => {
         inscriptionList.sort((a, b) => a.inscriptionNumber.localeCompare(b.inscriptionNumber))
         setInscriptions(inscriptionList)
@@ -41,9 +41,9 @@ const InscriptionList = ({ walletId }: Props) => {
       .finally(() => {
         setLoading(false)
       })
-  }, [walletId])
+  }, [walletAddress])
 
-  if (!walletId) return null
+  if (!walletAddress) return null
 
   if (loading)
     return (
@@ -56,6 +56,7 @@ const InscriptionList = ({ walletId }: Props) => {
   return (
     <>
       <SubTitle>Results</SubTitle>
+      {inscriptions.length === 0 && <p>No inscriptions found</p>}
       {inscriptions.map(i => (
         <InscriptionLabel key={i.id} inscription={i} />
       ))}
