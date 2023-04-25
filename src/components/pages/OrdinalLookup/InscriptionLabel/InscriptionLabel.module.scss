@@ -1,0 +1,17 @@
+.container {
+  padding: 1.215rem 0;
+  margin-bottom: 0.815rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.link {
+  position: absolute;
+  right: 0;
+  border: solid #FFF;
+  border-width: 0 0.125rem 0.125rem 0;
+  display: inline-block;
+  padding: 3px;
+
+  transform: rotate(-45deg);
+}

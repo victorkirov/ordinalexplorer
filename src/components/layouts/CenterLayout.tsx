@@ -1,14 +1,15 @@
-import { Box } from '@mui/material'
 import { Outlet } from 'react-router-dom'
+
+import css from './CenterLayout.module.scss'
 
 const CenterLayout = () => {
   return (
-    <Box flexDirection="column" display="flex" alignItems="center" width="100vw" height="100vh">
+    <div className={css.container}>
       {/* TODO: figure out max width*/}
-      <Box maxWidth="10rem" height="100vh">
+      <div className={css.innerContainer}>
         <Outlet />
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 

@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-body {
-  font-family: Montserrat, Arial, sans-serif;
+html {
   font-size: 14px;
-  line-height: 1.22;
+}
+
+body {
+  overscroll-behavior-y: none;
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 1.22rem;
   font-weight: 500;
 
   color: #FFF;
@@ -15,8 +19,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+}
+
+hr {
+  border-color: #24252C;
 }
