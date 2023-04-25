@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const NFTViewer = () => {
+  const navigate = useNavigate()
+
   const { id } = useParams()
   const [img, setImg] = useState('')
   const [text, setText] = useState('')
@@ -11,7 +13,7 @@ const NFTViewer = () => {
   const [threeD, setThreeD] = useState('')
   const [html, setHtml] = useState('')
   const [name, setName] = useState('')
-  const [metadata, setMetadata] = useState({})
+  const [metadata, setMetadata] = useState(undefined)
 
   useEffect(() => {
     axios.get('https://api.xverse.app/v1/ordinals/' + id).then(res => {
@@ -43,7 +45,13 @@ const NFTViewer = () => {
   return (
     <span>
       <iframe src="silence.mp3" allow="autoplay" id="audio" style={{ display: 'none' }}></iframe>
-      {/* TODO: add back arrow */}
+      <span
+        onClick={() => {
+          navigate(-1)
+        }}
+      >
+        {'<'}
+      </span>
       Details
       <br />
       {img && <img src={`https://ordinals.com${img}`} alt="NFT" />}
