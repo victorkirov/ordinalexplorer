@@ -1,5 +1,6 @@
-import { Box, Button, Typography } from '@mui/material'
 import { useNavigate, useRouteError } from 'react-router-dom'
+
+import { Button } from '@components/atoms'
 
 type RouterError =
   | {
@@ -12,21 +13,19 @@ const ErrorPage = () => {
   const error = useRouteError() as RouterError
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" marginTop="5rem">
-      <img src="TODO" alt="Confused person" style={{ maxWidth: '100%', marginBottom: '2rem' }} />
-      <Typography variant="h2" marginBottom="2rem">
-        Something went wrong
-      </Typography>
-      <Typography variant="h6" marginBottom="2rem">
-        {error?.message}
-      </Typography>
-      <Button onClick={() => navigate(-1)} variant="contained" size="large" sx={{ marginRight: 1 }}>
-        Back
-      </Button>
-      <Button onClick={() => navigate('/')} variant="contained" size="large">
-        Home
-      </Button>
-    </Box>
+    <div>
+      <img
+        src="https://img.freepik.com/premium-vector/young-good-looking-man-doing-confused-pose_97632-4174.jpg"
+        alt="Confused person"
+        style={{ maxWidth: '100%', marginBottom: '2rem' }}
+      />
+      <h2>Something went wrong</h2>
+      <p>{error?.message}</p>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Button onClick={() => navigate(-1)}>Back</Button>
+        <Button onClick={() => navigate('/')}>Home</Button>
+      </div>
+    </div>
   )
 }
 

@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.85rem 0 1.215rem;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  border: solid #FFF;
+  border-width: 0 0.125rem 0.125rem 0;
+  display: inline-block;
+  padding: 3px;
+
+  transform: rotate(135deg);
+}

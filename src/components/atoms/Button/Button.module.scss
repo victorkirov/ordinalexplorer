@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #465AE9;
+  color: #FFF;
+  border-radius: 0.715rem;
+  padding: 1rem;
+  width: 100;
+  cursor: pointer;
+}
+
+.disabled {
+  background-color: #E0E0E0;
+  color: #666;
+  cursor: initial;
+}

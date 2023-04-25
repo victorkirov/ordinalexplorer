@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+html {
+  font-size: clamp(14px, calc(10px + 1vw), 2vh);
+  /* Uncomment below to disable responsive design */
+  /* font-size: 14px; */
+}
+
 body {
+  overscroll-behavior-y: none;
   font-family: Montserrat, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.22;
+  line-height: 1.22rem;
   font-weight: 500;
 
   color: #FFF;
@@ -15,8 +21,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+}
+
+hr {
+  border-color: #24252C;
 }

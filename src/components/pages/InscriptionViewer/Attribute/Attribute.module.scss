@@ -1,0 +1,21 @@
+.title {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0.715rem 0;
+}
+
+.value {
+  display: flex;
+  flex-direction: row;
+  background-color: #24252C;
+  margin-bottom: 1.214rem;
+  padding: 0.857rem;
+  border-radius: 0.57rem;
+  cursor: copy;
+
+  .truncatable {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
