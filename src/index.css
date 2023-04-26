@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 html {
-  font-size: clamp(14px, calc(10px + 1vw), 2.5vh);
-  /* Uncomment below to disable responsive design */
-  /* font-size: 14px; */
+  font-size: clamp(12px, calc(7px + 2vw), 2.5vh);
 }
 
 body {
@@ -21,7 +19,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   margin: 0;
-  width: 100vw;
   height: 100vh;
 }
 

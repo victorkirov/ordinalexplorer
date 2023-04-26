@@ -2,3 +2,5 @@
 .eslintrc
 node_modules/
 README.md
+jest.config.ts
+jest.setup.ts
