@@ -17,11 +17,15 @@ The thumbnail loading is not ideal because there are no actual thumbnails of the
 
 The thumbnail display is optimised though to only render the thumbnail if it is on screen. This means that we only render a few images at a time until the user scrolls down to the next set of images. This allows us to not render all the images if the wallet happens to have hundreds of images. Rendering the thumbnails this way will also put the full image into the local cache, so when a user visits the detailed view for an Inscription, the image should already be loaded.
 
+## Assumptions
+- There was no mention in the spec as to where to load the content from. The content URL corresponded to the URL from www.ordinals.com from the spec, so that was used as they accept cross-origin requests. This can be changed if needed by changing the API URL in the apiClient files.
+
 ## Known issues/required improvements
 - There is no state re-use between the Wallet Inscription List and Inscription pages. The Inscription List page pulls all Ordinals for a wallet and then each Inscriptions for each Ordinal in order to show the Inscription name on the list. This means that we already have the Inscription data but we get it again when we navigate to the Inscription detail page. This is not ideal and should be fixed.
 - We should also be able to store the Ordinal and Inscription data in a local store so that we don't have to fetch it again if we navigate back to the page. This does come with the caveat that if an Inscription was sent to another wallet, then it should no longer be shown on the Inscription list (as is currently the case). This is a trade-off that should be considered and could be implemented with a store that has a TTL before updating it is required.
 - The current implementation relies on external APIs to get the data. This is not ideal and we should have our own API that we can use instead. This would also allow us to cache the data server-side if needed. We would also make fewer calls to the server; instead of calling the server for each Ordinal and then again for each Inscription, we could call it once and get all the Ordinals/Inscriptions for a wallet and would also allow us to paginate the results in the case of a wallet containing many Ordinals.
 - Test coverage is currently low but there is not enough time in the scope of this project ot increase it.
+- There are a few magic URL strings and magic numbers in the code. These should be moved to constants and/or environment variables which can be set at build time.
 
 ## Setup
 
@@ -57,9 +61,11 @@ Build the application:
 npm run build
 ```
 
+The output is in the `dist` folder which can be used to deploy the application behind a static file server as needed.
+
 ## Docker
 
-The Docker image was created to make deployment to Kubernetes or to a conatinerized hosting service easier.
+The Docker image was created to make deployment to Kubernetes or to a containerized hosting service easier.
 
 Build the docker image:
 
