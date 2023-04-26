@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { CenterDiv, Loader, SubTitle } from '@components/atoms'
 import apiClient, { Inscription } from '@src/apiClient'
 
-import InscriptionLabel from '../InscriptionLabel'
+import InscriptionLabel from './InscriptionLabel'
 
 type Props = {
   walletAddress: string | undefined | null
