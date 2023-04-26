@@ -29,11 +29,9 @@ const InscriptionLabel = ({ inscription }: Props) => {
         navigate('/inscription/' + inscription.id)
       }}
     >
-      {isImage && inView && (
-        <div className={css.imageContainer}>
-          <img src={`https://ordinals.com${inscription.content}`} alt="" className={css.image} />
-        </div>
-      )}
+      <div className={css.imageContainer}>
+        {isImage && inView && <img src={`https://ordinals.com${inscription.content}`} alt="" className={css.image} />}
+      </div>
       {inscription.inscriptionNumber}
 
       <div className={css.link} />

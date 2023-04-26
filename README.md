@@ -4,10 +4,18 @@ A simple explorer for Bitcoin Ordinals and Inscriptions.
 
 The Inscription viewer supports images, videos, audio, 3D models, html, and text.
 
-Please note that this project was only tested in Chrome.
+Please note that this project was only tested in Chrome and Safari on a Mac and iPhone.
 
 Note:
 The Figma design was followed as closely as possible. The project was made responsive, which will make the sizes of the elements slightly different than the design. To turn off the responsiveness and make the elements the same size as the design,go to `src/main.tsx` and change the value of `ENABLE_RESPONSIVE` to `false`.
+
+## Extra challenge
+
+The challenge of loading the thumbnails was implemented. The current implementation adds an empty div where the thumbnail would go to keep all the labels in line, which means that a non-image Inscription, the label in the list will be to the right and not as per the figma spec. This results in all the labels being pushed to the right for wallets with no image Inscriptions. This can be fixed but I decided to leave it as is for now as it would be a design decision which would be catered for buy teh designer.
+
+The thumbnail loading is not ideal because there are no actual thumbnails of the contents available. This means that the thumbnail would load the actual image, even if the image was a uge resolution, and only render it at a smaller size. This is not ideal and would be a problem for large images. The solution would be to have a thumbnail version of the image available. This could be done by having a separate API that would generate the thumbnail and store it in a CDN. This would also allow us to have a thumbnail for all Inscriptions, not just images, but hat would be quite a large project and would be a feature that would have to be considered as a company to decide if it's worth the cost to implement.
+
+The thumbnail display is optimised though to only render the thumbnail if it is on screen. This means that we only render a few images at a time until the user scrolls down to the next set of images. This allows us to not render all the images if the wallet happens to have hundreds of images. Rendering the thumbnails this way will also put the full image into the local cache, so when a user visits the detailed view for an Inscription, the image should already be loaded.
 
 ## Known issues/required improvements
 - There is no state re-use between the Wallet Inscription List and Inscription pages. The Inscription List page pulls all Ordinals for a wallet and then each Inscriptions for each Ordinal in order to show the Inscription name on the list. This means that we already have the Inscription data but we get it again when we navigate to the Inscription detail page. This is not ideal and should be fixed.
