@@ -66,8 +66,9 @@ docker run --rm -p 5173:5173 ordinal-explorer
 ```
 
 ## Wallets used for testing:
-- bc1pe6y27ey6gzh6p0j250kz23zra7xn89703pvmtzx239zzstg47j3s3vdvvs
-- bc1pqdmdzetkl557lx70jdpjw2s82ncz9gxdvzgkuq7yr0lz4sl0mglsqcqvsv
+- bc1pe6y27ey6gzh6p0j250kz23zra7xn89703pvmtzx239zzstg47j3s3vdvvs (from spec)
+- bc1pqdmdzetkl557lx70jdpjw2s82ncz9gxdvzgkuq7yr0lz4sl0mglsqcqvsv (many inscriptions)
+- bc1pcyn5wew9atf63wtxkjv5ephdvauhcx2gguwss9ct9pzw28s5vwassn5k0w (few inscriptions)
 
 ## Inscriptions for testing:
 
