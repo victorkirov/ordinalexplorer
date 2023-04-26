@@ -7,7 +7,7 @@ The Inscription viewer supports images, videos, audio, 3D models, html, and text
 Please note that this project was only tested in Chrome and Safari on a Mac and iPhone.
 
 Note:
-The Figma design was followed as closely as possible. The project was made responsive, which will make the sizes of the elements slightly different than the design. To turn off the responsiveness and make the elements the same size as the design,go to `src/main.tsx` and change the value of `ENABLE_RESPONSIVE` to `false`.
+The Figma design was followed as closely as possible. The project was made responsive, which will make the sizes of the elements slightly different than the design. To turn off the responsiveness and make the elements the same size as the design,go to `src/main.tsx` and change the value of `ENABLE_RESPONSIVE` to `false`. This was an added feature and can be made to match the spec by using pixel values instead of rem values for style sizes if needed.
 
 ## Extra challenge
 
