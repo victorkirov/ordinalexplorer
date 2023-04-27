@@ -11,7 +11,7 @@ The Figma design was followed as closely as possible. The project was made respo
 
 ## Extra challenge
 
-The challenge of loading the thumbnails was implemented. The current implementation adds an empty div where the thumbnail would go to keep all the labels in line, which means that a non-image Inscription, the label in the list will be to the right and not as per the figma spec. This results in all the labels being pushed to the right for wallets with no image Inscriptions. This can be fixed but I decided to leave it as is for now as it would be a design decision which would be catered for buy teh designer.
+The challenge of loading the thumbnails was implemented. The current implementation adds an empty div where the thumbnail would go to keep all the labels in line, which means that a non-image Inscription, the label in the list will be to the right and not as per the figma spec. This results in all the labels being pushed to the right for wallets with no image Inscriptions. This can be fixed but I decided to leave it as is for now as it would be a design decision which would be catered for by the designer.
 
 The thumbnail loading is not ideal because there are no actual thumbnails of the contents available. This means that the thumbnail would load the actual image, even if the image was a uge resolution, and only render it at a smaller size. This is not ideal and would be a problem for large images. The solution would be to have a thumbnail version of the image available. This could be done by having a separate API that would generate the thumbnail and store it in a CDN. This would also allow us to have a thumbnail for all Inscriptions, not just images, but hat would be quite a large project and would be a feature that would have to be considered as a company to decide if it's worth the cost to implement.
 
@@ -26,6 +26,8 @@ The thumbnail display is optimised though to only render the thumbnail if it is 
 - The current implementation relies on external APIs to get the data. This is not ideal and we should have our own API that we can use instead. This would also allow us to cache the data server-side if needed. We would also make fewer calls to the server; instead of calling the server for each Ordinal and then again for each Inscription, we could call it once and get all the Ordinals/Inscriptions for a wallet and would also allow us to paginate the results in the case of a wallet containing many Ordinals.
 - Test coverage is currently low but there is not enough time in the scope of this project ot increase it.
 - There are a few magic URL strings and magic numbers in the code. These should be moved to constants and/or environment variables which can be set at build time.
+- All the components were made manually. It would be better to use a standard component library, like Material UI, with a custom theme.
+- Styling is currently a bit inconsistent with some styles being set directly on elements and others in .scss files. Colours are also specified directly in those files. It would be good to choose a specific way of specifying styles and a central place to specify colours.
 
 ## Setup
 
